@@ -323,4 +323,135 @@ footer {
     <li><a href="#gallery">Galeria / Gallery</a></li>
     <li><a href="#contact">Kontakt / Contact</a></li>
   </ul>
-  <div class="lang-sw
+  <div class="lang-switch">
+    <button onclick="switchLang('pl')">🇵🇱</button>
+    <button onclick="switchLang('en')">🇬🇧</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="hero" class="hero">
+  <div class="overlay">
+    <div class="hero-logo">
+      <h1>Eros Kamil Krawczak</h1>
+      <img src="logo.png" alt="Logo firmy" class="hero-logo-img">
+    </div>
+    <p class="lang-pl hero-text">Usługi spawalnicze | Gdynia i cała Europa</p>
+    <p class="lang-en hero-text" style="display:none;">Welding Services | Gdynia & All Europe</p>
+    <a href="#contact" class="cta-button lang-pl">Skontaktuj się</a>
+    <a href="#contact" class="cta-button lang-en" style="display:none;">Contact Us</a>
+  </div>
+</header>
+
+<!-- O firmie -->
+<section id="about" class="about">
+  <h2 class="lang-pl">O firmie</h2>
+  <h2 class="lang-en" style="display:none;">About</h2>
+  <p class="lang-pl">
+    Firma Eros Kamil Krawczak działa od 2018 roku, świadcząc kompleksowe usługi spawalnicze dla przemysłu ciężkiego i branży stoczniowej. Właściciel firmy posiada ponad 20 lat doświadczenia w spawaniu konstrukcji stalowych, co pozwala realizować zarówno drobne zlecenia, jak i duże projekty przemysłowe.
+  </p>
+  <p class="lang-pl">
+    Specjalizujemy się w spawaniu konstrukcji stalowych, bram przemysłowych oraz dużych elementów stoczniowych, gwarantując najwyższą jakość wykonania. Nasza firma stawia na terminowość, rzetelność oraz precyzję, a każde zlecenie traktujemy indywidualnie.
+  </p>
+  <p class="lang-en" style="display:none;">
+    Eros Kamil Krawczak has been operating since 2018, providing comprehensive welding services for heavy industry and the shipyard sector. The owner has over 20 years of experience in welding steel constructions, enabling the company to handle both small-scale tasks and large industrial projects.
+  </p>
+  <p class="lang-en" style="display:none;">
+    We specialize in welding steel structures, industrial gates, and large shipyard components, ensuring the highest quality of workmanship. Our company emphasizes punctuality, reliability, and precision, and each project is approached individually.
+  </p>
+</section>
+
+<!-- Oferta -->
+<section id="services" class="services">
+  <h2 class="lang-pl">Nasza oferta</h2>
+  <h2 class="lang-en" style="display:none;">Our Services</h2>
+  <div class="service-cards">
+    <div class="card">
+      <img src="ikon_spawanie.png" alt="Spawanie">
+      <h3 class="lang-pl">Spawanie MIG/MAG/TIG</h3>
+      <h3 class="lang-en" style="display:none;">MIG/MAG/TIG Welding</h3>
+    </div>
+    <div class="card">
+      <img src="ikon_konstrukcje.png" alt="Konstrukcje stalowe">
+      <h3 class="lang-pl">Konstrukcje stalowe / Stocznia</h3>
+      <h3 class="lang-en" style="display:none;">Steel Constructions / Shipyard</h3>
+    </div>
+    <div class="card">
+      <img src="ikon_bramy.png" alt="Bramy przemysłowe">
+      <h3 class="lang-pl">Bramy przemysłowe / Stocznia</h3>
+      <h3 class="lang-en" style="display:none;">Industrial Gates / Shipyard</h3>
+    </div>
+    <div class="card">
+      <img src="ikon_naprawy.png" alt="Naprawy">
+      <h3 class="lang-pl">Naprawy i renowacje</h3>
+      <h3 class="lang-en" style="display:none;">Repairs & Renovations</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Galeria -->
+<section id="gallery" class="gallery">
+  <h2 class="lang-pl">Galeria</h2>
+  <h2 class="lang-en" style="display:none;">Gallery</h2>
+  <div class="slider">
+    <div class="slide"><img src="galeria1.jpg" alt="Realizacja 1"></div>
+    <div class="slide"><img src="galeria2.jpg" alt="Realizacja 2"></div>
+    <div class="slide"><img src="galeria3.jpg" alt="Realizacja 3"></div>
+  </div>
+</section>
+
+<!-- Kontakt -->
+<section id="contact" class="contact">
+  <h2 class="lang-pl">Kontakt</h2>
+  <h2 class="lang-en" style="display:none;">Contact</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <p class="lang-pl">📞 Telefon: +48 690 887 072</p>
+      <p class="lang-en" style="display:none;">📞 Phone: +48 690 887 072</p>
+      <p class="lang-pl">✉️ Email: erosek13@gmail.com</p>
+      <p class="lang-en" style="display:none;">✉️ Email: erosek13@gmail.com</p>
+      <p class="lang-pl">🏢 Adres: Podgórska 4a/2, 81-166 Gdynia</p>
+      <p class="lang-en" style="display:none;">🏢 Address: Podgórska 4a/2, 81-166 Gdynia, Poland</p>
+      <p class="lang-pl">🆔 NIP: 5272438753</p>
+      <p class="lang-en" style="display:none;">🆔 VAT ID: 5272438753</p>
+    </div>
+    <form class="contact-form">
+      <input type="text" placeholder="Imię / Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Wiadomość / Message" required></textarea>
+      <button type="submit" class="lang-pl">Wyślij</button>
+      <button type="submit" class="lang-en" style="display:none;">Send</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Eros Kamil Krawczak. Wszystkie prawa zastrzeżone / All rights reserved.</p>
+</footer>
+
+<script>
+function switchLang(lang){
+  document.querySelectorAll('.lang-pl').forEach(el=>el.style.display=lang==='pl'?'block':'none');
+  document.querySelectorAll('.lang-en').forEach(el=>el.style.display=lang==='en'?'block':'none');
+}
+
+// Slider
+let slideIndex = 0;
+function showSlides(){
+  const slides=document.querySelectorAll('.slide');
+  slides.forEach(s=>s.style.display='none');
+  slideIndex++;
+  if(slideIndex>slides.length) slideIndex=1;
+  slides[slideIndex-1].style.display='block';
+  setTimeout(showSlides,3000);
+}
+showSlides();
+
+// Navbar toggle mobile
+function toggleMenu(){
+  document.querySelector('.nav-links').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
