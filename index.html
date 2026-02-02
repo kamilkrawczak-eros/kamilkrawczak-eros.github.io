@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 
 <style>
-/* ===== OGÓLNE ===== */
+/* ===== Ogólne ===== */
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
@@ -23,7 +23,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #111;
-    padding: 10px 20px;
+    padding: 10px 30px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -33,12 +33,13 @@ body {
 .logo-nav {
     display: flex;
     align-items: center;
-    gap: 10px;
 }
 
 .nav-logo {
-    height: 80px;
+    height: 80px; /* większe logo */
     width: auto;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .nav-links {
@@ -58,22 +59,6 @@ body {
     color: #ff6b00;
 }
 
-.lang-switch button {
-    background: none;
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 5px 10px;
-    margin-left: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-size: 1em;
-}
-
-.lang-switch button:hover {
-    background-color: #ff6b00;
-    border-color: #ff6b00;
-}
-
 /* Hamburger menu */
 .hamburger {
     display: none;
@@ -88,6 +73,15 @@ body {
     background-color: #fff;
 }
 
+/* Language switch buttons */
+.lang-switch button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
 /* RESPONSIVE NAVBAR */
 @media (max-width: 768px) {
     .nav-links {
@@ -96,12 +90,14 @@ body {
         right: -100%;
         flex-direction: column;
         background-color: #111;
-        width: 200px;
+        width: 250px;
         transition: right 0.3s;
         padding: 20px;
         border-radius: 5px 0 0 5px;
         gap: 15px;
         height: calc(100vh - 60px);
+        overflow-y: auto;
+        z-index: 999;
     }
 
     .nav-links.active {
@@ -122,12 +118,15 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
+    padding-top: 60px; /* aby nie zasłaniał navbar */
 }
 
 .hero .overlay {
     background-color: rgba(0,0,0,0.5);
     padding: 40px 20px;
     border-radius: 15px;
+    max-width: 600px;
 }
 
 .hero-logo h1 {
@@ -139,7 +138,7 @@ body {
 
 .hero-logo-img {
     margin-top: 20px;
-    height: 150px;
+    height: 150px; /* większe logo */
     width: auto;
 }
 
@@ -147,13 +146,14 @@ body {
     font-size: 1.5em;
     margin: 20px 0;
     line-height: 1.4;
+    color: #fff;
 }
 
 .cta-button {
     background-color: #ff6b00;
     color: #fff;
     text-decoration: none;
-    padding: 10px 25px;
+    padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
     transition: background 0.3s;
@@ -163,7 +163,7 @@ body {
     background-color: #e55a00;
 }
 
-/* ===== O FIRMIE ===== */
+/* ===== SEKCJA O FIRMIE ===== */
 section.about {
     padding: 100px 30px 50px;
     max-width: 1000px;
@@ -324,11 +324,13 @@ footer {
     <img src="logo.png" alt="Logo firmy" class="nav-logo">
     <span>Eros Kamil Krawczak</span>
   </div>
+
   <div class="hamburger" onclick="toggleMenu()">
     <div></div>
     <div></div>
     <div></div>
   </div>
+
   <ul class="nav-links">
     <li><a href="#hero">Home / Start</a></li>
     <li><a href="#about">O firmie / About</a></li>
@@ -336,6 +338,7 @@ footer {
     <li><a href="#gallery">Galeria / Gallery</a></li>
     <li><a href="#contact">Kontakt / Contact</a></li>
   </ul>
+
   <div class="lang-switch">
     <button onclick="switchLang('pl')">🇵🇱</button>
     <button onclick="switchLang('en')">🇬🇧</button>
@@ -349,10 +352,10 @@ footer {
       <h1>Eros Kamil Krawczak</h1>
       <img src="logo.png" alt="Logo firmy" class="hero-logo-img">
     </div>
-    <p class="lang-pl hero-text">Usługi spawalnicze • Gdynia • Europa</p>
-    <p class="lang-en hero-text" style="display:none;">Welding services • Gdynia • Europe</p>
+    <p class="lang-pl hero-text">Usługi spawalnicze | Gdynia i cała Europa</p>
+    <p class="lang-en hero-text" style="display:none;">Welding Services | Gdynia & All Europe</p>
     <a href="#contact" class="cta-button lang-pl">Skontaktuj się</a>
-    <a href="#contact" class="cta-button lang-en" style="display:none;">Contact</a>
+    <a href="#contact" class="cta-button lang-en" style="display:none;">Contact Us</a>
   </div>
 </header>
 
@@ -443,28 +446,28 @@ footer {
 </footer>
 
 <script>
-// Hamburger menu
-function toggleMenu() {
+  // Hamburger toggle
+  function toggleMenu() {
     document.querySelector('.nav-links').classList.toggle('active');
-}
+  }
 
-// Przełączanie języka
-function switchLang(lang){
+  // Przełączanie języka
+  function switchLang(lang) {
     document.querySelectorAll('.lang-pl').forEach(el => el.style.display = lang==='pl' ? '' : 'none');
     document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang==='en' ? '' : 'none');
-}
+  }
 
-// Slider galerii
-let slideIndex = 0;
-function showSlides() {
+  // Slider galerii
+  let slideIndex = 0;
+  function showSlides() {
     const slides = document.querySelectorAll('.slide');
     slides.forEach(s => s.style.display='none');
     slideIndex++;
     if(slideIndex > slides.length) slideIndex=1;
     slides[slideIndex-1].style.display='block';
     setTimeout(showSlides, 3000);
-}
-showSlides();
+  }
+  showSlides();
 </script>
 
 </body>
