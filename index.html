@@ -15,7 +15,6 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: #111;
     color: #fff;
-    overflow-x: hidden;
 }
 
 /* ===== NAVBAR ===== */
@@ -62,16 +61,17 @@ body {
 
 .lang-switch button {
     background: none;
-    border: none;
+    border: 1px solid #fff;
     color: #fff;
+    padding: 5px 10px;
+    margin-left: 5px;
     cursor: pointer;
-    font-size: 1.2em;
-    margin-left: 10px;
-    transition: transform 0.2s;
+    transition: all 0.3s;
 }
 
 .lang-switch button:hover {
-    transform: scale(1.2);
+    background-color: #ff6b00;
+    border-color: #ff6b00;
 }
 
 /* ===== HERO ===== */
@@ -84,7 +84,7 @@ body {
     align-items: center;
     text-align: right;
     overflow: hidden;
-    padding-right: 50px;
+    padding-right: 50px; /* dodatkowe przesunięcie w prawo */
 }
 
 .hero .overlay {
@@ -92,43 +92,11 @@ body {
     padding: 40px 40px;
     border-radius: 15px;
     max-width: 600px;
-    position: relative;
-    z-index: 2;
 }
 
-/* animowane iskry w tle */
-.sparks {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.spark {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: orange;
-    border-radius: 50%;
-    opacity: 0;
-    animation: sparkAnim 2s linear infinite;
-}
-
-@keyframes sparkAnim {
-    0% {opacity: 0; transform: translate(0,0) scale(0.5);}
-    10% {opacity: 1;}
-    50% {opacity: 1;}
-    100% {opacity: 0; transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px)) scale(0);}
-}
-
-/* logo i nazwa firmy */
 .hero-logo-right h1 {
-    font-family: 'Anton', sans-serif;
-    font-size: 4em; /* mega duży napis */
+    font-family: 'Anton', sans-serif; /* nowa czcionka industrialna */
+    font-size: 4em; /* bardzo duży napis */
     margin: 0;
     color: #ff6b00;
 }
@@ -161,14 +129,14 @@ body {
     background-color: #e55a00;
 }
 
-/* ===== SEKCJE ===== */
-section.about, section.services, section.gallery, section.contact {
-    padding: 100px 30px;
+/* ===== SEKCJA O FIRMIE ===== */
+section.about {
+    padding: 100px 30px 50px;
     max-width: 1000px;
     margin: auto;
 }
 
-.about h2, .services h2, .gallery h2, .contact h2 {
+.about h2 {
     font-family: 'Anton', sans-serif;
     font-size: 2.5em;
     text-align: center;
@@ -180,8 +148,17 @@ section.about, section.services, section.gallery, section.contact {
     margin-bottom: 20px;
 }
 
+/* ===== OFERTA ===== */
 .services {
+    padding: 50px 30px;
     background-color: #1a1a1a;
+}
+
+.services h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .service-cards {
@@ -200,28 +177,109 @@ section.about, section.services, section.gallery, section.contact {
     transition: transform 0.3s;
 }
 
-.card:hover {transform: translateY(-5px);}
-.card img {width: 100px; margin-bottom: 15px;}
-.card h3 {font-family: 'Montserrat', sans-serif; font-size: 1.2em;}
-
-.gallery .slider {position: relative; max-width: 900px; margin: auto;}
-.gallery .slide {display: none;}
-.gallery .slide img {width: 100%; border-radius: 10px;}
-
-.contact {background-color: #1a1a1a;}
-.contact-container {display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;}
-.contact-info {max-width: 300px;}
-.contact-form {display: flex; flex-direction: column; gap: 15px; max-width: 400px;}
-.contact-form input, .contact-form textarea {
-    padding: 10px; border-radius: 5px; border: none; font-size: 1em;
+.card:hover {
+    transform: translateY(-5px);
 }
+
+.card img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+}
+
+/* ===== GALERIA ===== */
+.gallery {
+    padding: 50px 30px;
+}
+
+.gallery h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.slider {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ===== KONTAKT ===== */
+.contact {
+    padding: 50px 30px;
+    background-color: #1a1a1a;
+}
+
+.contact h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.contact-info {
+    max-width: 300px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+}
+
 .contact-form button {
-    padding: 12px; border: none; background-color: #ff6b00; color: #fff; font-weight: bold; cursor: pointer; border-radius: 5px;
+    padding: 12px;
+    border: none;
+    background-color: #ff6b00;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
     transition: background 0.3s;
 }
-.contact-form button:hover {background-color: #e55a00;}
 
-footer {text-align: center; padding: 20px; background-color: #111; color: #fff; margin-top: 20px;}
+.contact-form button:hover {
+    background-color: #e55a00;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #fff;
+    margin-top: 20px;
+}
 </style>
 </head>
 <body>
@@ -240,14 +298,13 @@ footer {text-align: center; padding: 20px; background-color: #111; color: #fff; 
     <li><a href="#contact">Kontakt / Contact</a></li>
   </ul>
   <div class="lang-switch">
-    <button onclick="switchLang('pl')">🇵🇱</button>
-    <button onclick="switchLang('en')">🇬🇧</button>
+    <button onclick="switchLang('pl')">PL</button>
+    <button onclick="switchLang('en')">EN</button>
   </div>
 </nav>
 
 <!-- HERO -->
 <header id="hero" class="hero">
-  <div class="sparks"></div> <!-- animowane iskry -->
   <div class="overlay">
     <div class="hero-logo-right">
       <h1>Eros Kamil Krawczak</h1>
@@ -260,7 +317,7 @@ footer {text-align: center; padding: 20px; background-color: #111; color: #fff; 
   </div>
 </header>
 
-<!-- Pozostałe sekcje (O firmie, Oferta, Galeria, Kontakt) pozostają takie same jak wcześniej -->
+<!-- O firmie -->
 <section id="about" class="about">
   <h2 class="lang-pl">O firmie</h2>
   <h2 class="lang-en" style="display:none;">About</h2>
@@ -278,28 +335,92 @@ footer {text-align: center; padding: 20px; background-color: #111; color: #fff; 
   </p>
 </section>
 
-<!-- Skrypt do zmiany języka i animacji iskier -->
-<script>
-// Zmiana języka
-function switchLang(lang) {
-  document.querySelectorAll('.lang-pl').forEach(el => el.style.display = lang === 'pl' ? '' : 'none');
-  document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
-}
+<!-- Oferta -->
+<section id="services" class="services">
+  <h2 class="lang-pl">Nasza oferta</h2>
+  <h2 class="lang-en" style="display:none;">Our Services</h2>
+  <div class="service-cards">
+    <div class="card">
+      <img src="ikon_spawanie.png" alt="Spawanie">
+      <h3 class="lang-pl">Spawanie MIG/MAG/TIG</h3>
+      <h3 class="lang-en" style="display:none;">MIG/MAG/TIG Welding</h3>
+    </div>
+    <div class="card">
+      <img src="ikon_konstrukcje.png" alt="Konstrukcje stalowe">
+      <h3 class="lang-pl">Konstrukcje stalowe / Stocznia</h3>
+      <h3 class="lang-en" style="display:none;">Steel Constructions / Shipyard</h3>
+    </div>
+    <div class="card">
+      <img src="ikon_bramy.png" alt="Bramy przemysłowe">
+      <h3 class="lang-pl">Bramy przemysłowe / Stocznia</h3>
+      <h3 class="lang-en" style="display:none;">Industrial Gates / Shipyard</h3>
+    </div>
+    <div class="card">
+      <img src="ikon_naprawy.png" alt="Naprawy">
+      <h3 class="lang-pl">Naprawy i renowacje</h3>
+      <h3 class="lang-en" style="display:none;">Repairs & Renovations</h3>
+    </div>
+  </div>
+</section>
 
-// Animacja iskier
-function createSparks() {
-  const sparksContainer = document.querySelector('.sparks');
-  for (let i=0;i<50;i++){
-    let spark = document.createElement('div');
-    spark.classList.add('spark');
-    spark.style.setProperty('--x', Math.random()*500 - 250);
-    spark.style.setProperty('--y', Math.random()*500 - 250);
-    spark.style.left = Math.random()*100 + '%';
-    spark.style.top = Math.random()*100 + '%';
-    sparksContainer.appendChild(spark);
+<!-- Galeria -->
+<section id="gallery" class="gallery">
+  <h2 class="lang-pl">Galeria</h2>
+  <h2 class="lang-en" style="display:none;">Gallery</h2>
+  <div class="slider">
+    <div class="slide"><img src="galeria1.png" alt="Realizacja 1"></div>
+    <div class="slide"><img src="galeria2.png" alt="Realizacja 2"></div>
+    <div class="slide"><img src="galeria3.png" alt="Realizacja 3"></div>
+  </div>
+</section>
+
+<!-- Kontakt -->
+<section id="contact" class="contact">
+  <h2 class="lang-pl">Kontakt</h2>
+  <h2 class="lang-en" style="display:none;">Contact</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <p class="lang-pl">📞 Telefon: +48 690 887 072</p>
+      <p class="lang-en" style="display:none;">📞 Phone: +48 690 887 072</p>
+      <p class="lang-pl">✉️ Email: erosek13@gmail.com</p>
+      <p class="lang-en" style="display:none;">✉️ Email: erosek13@gmail.com</p>
+      <p class="lang-pl">🏢 Adres: Podgórska 4a/2, 81-166 Gdynia</p>
+      <p class="lang-en" style="display:none;">🏢 Address: Podgórska 4a/2, 81-166 Gdynia, Poland</p>
+      <p class="lang-pl">🆔 NIP: PL5272438753</p>
+      <p class="lang-en" style="display:none;">🆔 VAT ID: PL5272438753</p>
+    </div>
+    <form class="contact-form">
+      <input type="text" placeholder="Imię / Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Wiadomość / Message" required></textarea>
+      <button type="submit" class="lang-pl">Wyślij</button>
+      <button type="submit" class="lang-en" style="display:none;">Send</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Eros Kamil Krawczak. Wszystkie prawa zastrzeżone / All rights reserved.</p>
+</footer>
+
+<script>
+  // Przełączanie języka
+  function switchLang(lang) {
+    document.querySelectorAll('.lang-pl').forEach(el => el.style.display = lang === 'pl' ? '' : 'none');
+    document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
   }
-}
-createSparks();
+
+  // Prosty slider galerii
+  let slideIndex = 0;
+  function showSlides() {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach(s => s.style.display='none');
+    slideIndex++;
+    if(slideIndex > slides.length) slideIndex=1;
+    slides[slideIndex-1].style.display='block';
+    setTimeout(showSlides, 3000);
+  }
+  showSlides();
 </script>
 
 </body>
