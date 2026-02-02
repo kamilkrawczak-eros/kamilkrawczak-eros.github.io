@@ -4,193 +4,427 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eros Kamil Krawczak - Usługi spawalnicze / Welding Services</title>
+
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+
 <style>
-* { box-sizing:border-box; margin:0; padding:0; scroll-behavior:smooth; }
-body { font-family:'Open Sans',sans-serif; background:#111; color:#fff; padding-top:100px; }
+* { box-sizing: border-box; scroll-behavior: smooth; }
+body {
+    margin: 0;
+    padding-top: 90px; /* 🔴 WAŻNE – navbar */
+    font-family: 'Open Sans', sans-serif;
+    background-color: #111;
+    color: #fff;
+}
 
-/* NAVBAR */
-.navbar { position:fixed; top:0; width:100%; height:100px; background:#111; display:flex; justify-content:space-between; align-items:center; padding:0 20px; z-index:1000; }
-.logo-nav { display:flex; align-items:center; gap:12px; }
-.nav-logo { height:90px; }
-.nav-links { list-style:none; display:flex; gap:20px; }
-.nav-links li a { color:#fff; text-decoration:none; font-weight:600; }
-.nav-links li a:hover { color:#ff6b00; }
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    z-index: 1000;
+}
 
-/* FLAGI */
-.lang-switch button { background:none; border:1px solid #fff; color:#fff; padding:5px 10px; margin-left:5px; cursor:pointer; border-radius:5px; font-size:0.9em; transition:all 0.3s; }
-.lang-switch button:hover { background:#ff6b00; border-color:#ff6b00; }
+.logo-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-/* HAMBURGER */
-.hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
-.hamburger div { width:25px; height:3px; background:#fff; }
+.nav-logo {
+    height: 60px;
+    width: auto;
+    display: inline-block;
+    margin-right: 10px;
+}
 
-/* HERO */
-.hero { position:relative; height:calc(100vh - 100px); display:flex; justify-content:flex-end; align-items:center; overflow:hidden; text-align:right; padding-right:60px; }
-.hero-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
-.overlay { position:relative; z-index:1; background: rgba(0,0,0,0.5); padding:40px; border-radius:15px; max-width:600px; }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
 
-/* HERO LOGO */
-.hero-logo h1 { font-family:'Montserrat',sans-serif; font-size:4em; color:#ff6b00; margin:0; }
-.hero-logo-img { height:300px; width:auto; margin-top:20px; }
-.hero-text { font-size:1.8em; margin:20px 0; }
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s;
+}
 
-/* CTA */
-.cta-button { background:#ff6b00; padding:12px 25px; border-radius:6px; font-weight:bold; color:#fff; text-decoration:none; }
-.cta-button:hover { background:#e55a00; }
+.nav-links li a:hover {
+    color: #ff6b00;
+}
 
-/* SEKCJE */
-section { padding:70px 20px; max-width:1100px; margin:auto; scroll-margin-top:110px; }
-section h2 { font-family:'Montserrat',sans-serif; font-size:2.5em; text-align:center; margin-bottom:35px; }
-.about p { margin-bottom:15px; line-height:1.7; }
+.lang-switch button {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
 
-/* OFERTA */
-.services { background:#1a1a1a; }
-.service-cards { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
-.card { background:#222; padding:20px; border-radius:12px; width:180px; text-align:center; }
-.card img { width:70px; margin-bottom:15px; }
+.lang-switch button:hover {
+    background-color: #ff6b00;
+    border-color: #ff6b00;
+}
 
-/* GALERIA */
-.gallery { max-width:900px; margin:auto; }
-.slide { display:none; }
-.slide img { width:100%; border-radius:12px; }
+/* ===== HERO ===== */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('hero.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
 
-/* KONTAKT */
-.contact { background:#1a1a1a; }
-.contact-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
-.contact-info { max-width:400px; line-height:1.7; }
-.contact-form { display:flex; flex-direction:column; gap:12px; }
-.contact-form input, .contact-form textarea { padding:10px; border-radius:5px; border:none; }
-.contact-form button { background:#ff6b00; border:none; padding:10px; font-weight:bold; cursor:pointer; border-radius:5px; color:#fff; }
-.contact-form button:hover { background:#e55a00; }
+.hero .overlay {
+    background-color: rgba(0,0,0,0.5);
+    padding: 40px 20px;
+    border-radius: 15px;
+}
 
-footer { text-align:center; padding:20px; background:#000; color:#fff; }
+.hero-logo h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em; /* mniejszy napis */
+    margin: 0;
+    color: #ff6b00;
+}
 
-/* RESPONSYWNOŚĆ */
-@media(max-width:768px){
-  .nav-links { display:none; flex-direction:column; gap:10px; background:#111; position:absolute; top:100px; right:0; width:200px; padding:10px; border-left:1px solid #333; }
-  .nav-links.show { display:flex; }
-  .hamburger { display:flex; }
-  .hero-logo h1 { font-size:2.5em; }
-  .hero-logo-img { height:180px; }
-  .hero-text { font-size:1.3em; }
-  .overlay { padding:20px; max-width:90%; }
+.hero-logo-img {
+    margin-top: 20px;
+    height: 120px; /* większe logo */
+    width: auto;
+}
+
+.hero-text {
+    font-size: 1.5em;
+    margin: 20px 0;
+    line-height: 1.4;
+    color: #fff;
+}
+
+.cta-button {
+    background-color: #ff6b00;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e55a00;
+}
+
+/* ===== SEKCJE ===== */
+section {
+    padding: 80px 30px;
+    max-width: 1100px;
+    margin: auto;
+    scroll-margin-top: 100px;
+}
+}
+
+.about h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* ===== OFERTA ===== */
+.services {
+    padding: 50px 30px;
+    background-color: #1a1a1a;
+}
+
+.services h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+}
+
+/* ===== GALERIA ===== */
+.gallery {
+    padding: 50px 30px;
+}
+
+.gallery h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.slider {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ===== KONTAKT ===== */
+.contact {
+    padding: 50px 30px;
+    background-color: #1a1a1a;
+}
+
+.contact h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.contact-info {
+    max-width: 300px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+}
+
+.contact-form button {
+    padding: 10px;
+    border: none;
+    background-color: #ff6b00;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #e55a00;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #fff;
+    margin-top: 20px;
 }
 </style>
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo-nav">
-    <img src="logo.png" class="nav-logo" alt="Logo">
-    <strong>Eros Kamil Krawczak</strong>
+    <img src="logo.png" alt="Logo firmy" class="nav-logo">
+    <span>Eros Kamil Krawczak</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#about">O firmie</a></li>
-    <li><a href="#services">Oferta</a></li>
-    <li><a href="#gallery">Galeria</a></li>
-    <li><a href="#contact">Kontakt</a></li>
+    <li><a href="#hero">Home / Start</a></li>
+    <li><a href="#about">O firmie / About</a></li>
+    <li><a href="#services">Oferta / Services</a></li>
+    <li><a href="#gallery">Galeria / Gallery</a></li>
+    <li><a href="#contact">Kontakt / Contact</a></li>
   </ul>
   <div class="lang-switch">
-    <button onclick="switchLang('pl')">🇵🇱 PL</button>
-    <button onclick="switchLang('en')">🇬🇧 EN</button>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <button onclick="switchLang('pl')">🇵🇱 PL</button>
+  <button onclick="switchLang('en')">🇬🇧 EN</button>
+</div>
+
 </nav>
 
+<!-- HERO -->
 <header id="hero" class="hero">
-  <canvas class="hero-canvas"></canvas>
   <div class="overlay">
     <div class="hero-logo">
       <h1>Eros Kamil Krawczak</h1>
-      <img src="logo.png" class="hero-logo-img" alt="Logo firmy">
+      <img src="logo.png" alt="Logo firmy" class="hero-logo-img">
     </div>
-    <p class="lang-pl hero-text">Usługi spawalnicze • Gdynia • Europa</p>
-    <p class="lang-en hero-text" style="display:none;">Welding services • Gdynia • Europe</p>
+    <p class="lang-pl hero-text">Usługi spawalnicze | Gdynia i cała Europa</p>
+    <p class="lang-en hero-text" style="display:none;">Welding Services | Gdynia & All Europe</p>
     <a href="#contact" class="cta-button lang-pl">Skontaktuj się</a>
-    <a href="#contact" class="cta-button lang-en" style="display:none;">Contact</a>
+    <a href="#contact" class="cta-button lang-en" style="display:none;">Contact Us</a>
   </div>
 </header>
 
+<!-- O firmie -->
 <section id="about" class="about">
-<h2 class="lang-pl">O firmie</h2>
-<h2 class="lang-en" style="display:none;">About</h2>
-<p class="lang-pl">
-Firma Eros Kamil Krawczak działa od 2018 roku, świadcząc kompleksowe usługi spawalnicze dla przemysłu ciężkiego i branży stoczniowej. Właściciel firmy posiada ponad 20 lat doświadczenia w spawaniu konstrukcji stalowych, co pozwala realizować zarówno drobne zlecenia, jak i duże projekty przemysłowe.
-</p>
-<p class="lang-pl">
-Specjalizujemy się w <strong>spawaniu konstrukcji stalowych, bram przemysłowych oraz dużych elementów stoczniowych</strong>, gwarantując najwyższą jakość wykonania. Nasza firma stawia na <strong>terminowość, rzetelność oraz precyzję</strong>, a każde zlecenie traktujemy indywidualnie.
-</p>
-<p class="lang-en" style="display:none;">
-Eros Kamil Krawczak has been operating since 2018, providing comprehensive welding services for heavy industry and the shipyard sector. The owner has over 20 years of experience in welding steel constructions, allowing to handle both small-scale tasks and large industrial projects.
-</p>
-<p class="lang-en" style="display:none;">
-We specialize in <strong>welding steel structures, industrial gates, and large shipyard components</strong>, ensuring top-quality workmanship. Our company emphasizes <strong>punctuality, reliability, and precision</strong>, treating each project individually.
-</p>
+  <h2 class="lang-pl">O firmie</h2>
+  <h2 class="lang-en" style="display:none;">About</h2>
+  <p class="lang-pl">
+    Firma Eros Kamil Krawczak działa od 2018 roku, świadcząc kompleksowe usługi spawalnicze dla przemysłu ciężkiego i branży stoczniowej. Właściciel firmy posiada ponad 20 lat doświadczenia w spawaniu konstrukcji stalowych, co pozwala realizować zarówno drobne zlecenia, jak i duże projekty przemysłowe.
+  </p>
+  <p class="lang-pl">
+    Specjalizujemy się w <strong>spawaniu konstrukcji stalowych, bram przemysłowych oraz dużych elementów stoczniowych</strong>, gwarantując najwyższą jakość wykonania. Nasza firma stawia na <strong>terminowość, rzetelność oraz precyzję</strong>, a każde zlecenie traktujemy indywidualnie.
+  </p>
+  <p class="lang-en" style="display:none;">
+    Eros Kamil Krawczak has been operating since 2018, providing comprehensive welding services for heavy industry and the shipyard sector. The owner has over 20 years of experience in welding steel constructions, enabling the company to handle both small-scale tasks and large industrial projects.
+  </p>
+  <p class="lang-en" style="display:none;">
+    We specialize in <strong>welding steel structures, industrial gates, and large shipyard components</strong>, ensuring the highest quality of workmanship. Our company emphasizes <strong>punctuality, reliability, and precision</strong>, and each project is approached individually.
+  </p>
 </section>
 
+<!-- Oferta -->
 <section id="services" class="services">
-<h2 class="lang-pl">Oferta</h2>
-<h2 class="lang-en" style="display:none;">Services</h2>
-<div class="service-cards">
-  <div class="card"><img src="ikon_spawanie.png"><p>MIG / MAG / TIG</p></div>
-  <div class="card"><img src="ikon_konstrukcje.png"><p>Konstrukcje stalowe</p></div>
-  <div class="card"><img src="ikon_naprawy.png"><p>Naprawy przemysłowe</p></div>
-</div>
-</section>
-
-<section id="gallery" class="gallery">
-<h2 class="lang-pl">Galeria</h2>
-<h2 class="lang-en" style="display:none;">Gallery</h2>
-<div class="slide"><img src="galeria1.jpg"></div>
-<div class="slide"><img src="galeria2.jpg"></div>
-<div class="slide"><img src="galeria3.jpg"></div>
-</section>
-
-<section id="contact" class="contact">
-<h2 class="lang-pl">Kontakt</h2>
-<h2 class="lang-en" style="display:none;">Contact</h2>
-<div class="contact-container">
-  <div class="contact-info">
-    <p>📞 Telefon: +48 690 887 072</p>
-    <p>✉️ Email: erosek13@gmail.com</p>
-    <p>🏢 Adres: Podgórska 4a/2, 81-166 Gdynia, Polska</p>
-    <p>🆔 NIP: 5272438753</p>
+  <h2 class="lang-pl">Nasza oferta</h2>
+  <h2 class="lang-en" style="display:none;">Our Services</h2>
+  <div class="service-cards">
+    <div class="card">
+      <img src="ikon_spawanie.png" alt="Spawanie">
+      <h3 class="lang-pl">Spawanie MIG/MAG/TIG</h3>
+      <h3 class="lang-en" style="display:none;">MIG/MAG/TIG Welding</h3>
+    </div>
+    <div class="card">
+      <img src="ikon_konstrukcje.png" alt="Konstrukcje stalowe">
+      <h3 class="lang-pl">Konstrukcje stalowe / Stocznia</h3>
+      <h3 class="lang-en" style="display:none;">Steel Constructions / Shipyard</h3>
+    </div>
+    <div class="card">
+      <img src="ikon_bramy.png" alt="Bramy przemysłowe">
+      <h3 class="lang-pl">Bramy przemysłowe / Stocznia</h3>
+      <h3 class="lang-en" style="display:none;">Industrial Gates / Shipyard</h3>
+    </div>
+    <div class="card">
+      <img src="ikon_naprawy.png" alt="Naprawy">
+      <h3 class="lang-pl">Naprawy i renowacje</h3>
+      <h3 class="lang-en" style="display:none;">Repairs & Renovations</h3>
+    </div>
   </div>
-</div>
 </section>
 
-<footer>© 2026 Eros Kamil Krawczak. Wszystkie prawa zastrzeżone / All rights reserved.</footer>
+<!-- Galeria -->
+<section id="gallery" class="gallery">
+  <h2 class="lang-pl">Galeria</h2>
+  <h2 class="lang-en" style="display:none;">Gallery</h2>
+  <div class="slider">
+    <div class="slide"><img src="galeria1.jpg" alt="Realizacja 1"></div>
+    <div class="slide"><img src="galeria2.jpg" alt="Realizacja 2"></div>
+    <div class="slide"><img src="galeria3.jpg" alt="Realizacja 3"></div>
+  </div>
+</section>
+
+<!-- Kontakt -->
+<section id="contact" class="contact">
+  <h2 class="lang-pl">Kontakt</h2>
+  <h2 class="lang-en" style="display:none;">Contact</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <p class="lang-pl">📞 Telefon: +48 690 887 072</p>
+      <p class="lang-en" style="display:none;">📞 Phone: +48 690 887 072</p>
+      <p class="lang-pl">✉️ Email: erosek13@gmail.com</p>
+      <p class="lang-en" style="display:none;">✉️ Email: erosek13@gmail.com</p>
+      <p class="lang-pl">🏢 Adres: Podgórska 4a/2, 81-166 Gdynia</p>
+      <p class="lang-en" style="display:none;">🏢 Address: Podgórska 4a/2, 81-166 Gdynia, Poland</p>
+      <p class="lang-pl">🆔 NIP: PL5272438753</p>
+      <p class="lang-en" style="display:none;">🆔 VAT ID: PL5272438753</p>
+    </div>
+    <form class="contact-form">
+      <input type="text" placeholder="Imię / Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Wiadomość / Message" required></textarea>
+      <button type="submit" class="lang-pl">Wyślij</button>
+      <button type="submit" class="lang-en" style="display:none;">Send</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Eros Kamil Krawczak. Wszystkie prawa zastrzeżone / All rights reserved.</p>
+</footer>
 
 <script>
-// JĘZYK
-function switchLang(lang){
-  document.querySelectorAll('.lang-pl').forEach(el=>el.style.display=lang==='pl'?'':'none');
-  document.querySelectorAll('.lang-en').forEach(el=>el.style.display=lang==='en'?'':'none');
-}
+  // Przełączanie języka
+  function switchLang(lang) {
+    document.querySelectorAll('.lang-pl').forEach(el => el.style.display = lang === 'pl' ? '' : 'none');
+    document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+  }
 
-// HAMBURGER
-function toggleMenu(){ document.querySelector('.nav-links').classList.toggle('show'); }
-
-// GALERIA
-let slideIndex=0;
-function showSlides(){
-  const slides=document.querySelectorAll('.slide');
-  slides.forEach(s=>s.style.display='none');
-  slideIndex++; if(slideIndex>slides.length) slideIndex=1;
-  slides[slideIndex-1].style.display='block';
-  setTimeout(showSlides,3000);
-}
-showSlides();
-
-// ISKRY HERO
-const canvas=document.querySelector('.hero-canvas'); const ctx=canvas.getContext('2d'); canvas.width=window.innerWidth; canvas.height=window.innerHeight;
-let sparks=[]; function Spark(){ this.x=Math.random()*canvas.width; this.y=canvas.height; this.size=Math.random()*3+1; this.speedX=(Math.random()-0.5)*4; this.speedY=-Math.random()*8-2; this.alpha=Math.random()*0.8+0.2; }
-function createSparks(){ for(let i=0;i<5;i++) sparks.push(new Spark()); }
-function updateSparks(){ ctx.clearRect(0,0,canvas.width,canvas.height); sparks.forEach((s,i)=>{ s.x+=s.speedX; s.y+=s.speedY; s.alpha-=0.01; ctx.fillStyle='rgba(255,200,50,'+s.alpha+')'; ctx.beginPath(); ctx.arc(s.x,s.y,s.size,0,Math.PI*2); ctx.fill(); if(s.alpha<=0){ sparks[i]=new Spark(); sparks[i].y=canvas.height; } }); requestAnimationFrame(updateSparks); }
-createSparks(); updateSparks();
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
+  // Prosty slider galerii
+  let slideIndex = 0;
+  function showSlides() {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach(s => s.style.display='none');
+    slideIndex++;
+    if(slideIndex > slides.length) slideIndex=1;
+    slides[slideIndex-1].style.display='block';
+    setTimeout(showSlides, 3000);
+  }
+  showSlides();
 </script>
+
 </body>
 </html>
