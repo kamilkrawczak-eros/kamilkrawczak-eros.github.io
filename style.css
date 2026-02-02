@@ -1,75 +1,204 @@
-/* Reset i podstawy */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Open Sans', sans-serif; color:#eee; background:#121212; line-height:1.6; scroll-behavior:smooth; }
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eros Kamil Krawczak - Usługi spawalnicze / Welding Services</title>
 
-/* Czcionki nagłówków */
-h1,h2,h3 { font-family:'Montserrat', sans-serif; }
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 
-/* NAVBAR */
-.navbar { position:fixed; top:0; left:0; width:100%; background:rgba(17,17,17,0.8); display:flex; justify-content:space-between; align-items:center; padding:10px 20px; z-index:1000; transition:0.3s; }
-.navbar .logo-nav { display:flex; align-items:center; }
-.navbar .nav-logo { width:40px; margin-right:10px; }
-.nav-links { list-style:none; display:flex; gap:20px; }
-.nav-links li a { color:#fff; text-decoration:none; font-weight:600; transition: color 0.3s; }
-.nav-links li a:hover { color:#ff6b00; }
-.lang-switch button { background:#ff6b00; border:none; padding:5px 10px; margin-left:5px; cursor:pointer; color:#fff; border-radius:4px; font-weight:600; }
-
-/* HERO */
-.hero { position:relative; height:100vh; background:#111; display:flex; justify-content:center; align-items:center; overflow:hidden; }
-.hero .overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px; }
-.hero h1 { font-size:64px; color:#ff6b00; margin-bottom:20px; }
-.hero p { font-size:28px; color:#fff; margin-bottom:30px; }
-.hero .logo { display:block; max-width:250px; margin-bottom:20px; border:2px solid #ff6b00; border-radius:10px; filter:drop-shadow(0 0 15px #ff6b00);}
-.cta-button { background:#ff6b00; color:#121212; padding:15px 30px; border:none; border-radius:8px; font-weight:700; text-decoration:none; transition:0.3s; }
-.cta-button:hover { background:#ff4500; }
-
-/* Iskry spawacza */
-.spark-container { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; }
-.spark { position:absolute; width:4px; height:4px; background:#ff6b00; border-radius:50%; opacity:0.8;
-animation:sparkAnim 1.5s linear infinite;
-left: calc(100% * var(--i) / 10);
-top: 50%; }
-@keyframes sparkAnim {
-  0% { transform: translateY(0) scale(1); opacity:1; }
-  50% { transform: translateY(-200px) scale(0.5); opacity:0.5; }
-  100% { transform: translateY(-400px) scale(0); opacity:0; }
+<style>
+/* ===== Ogólne ===== */
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #111;
+    color: #fff;
 }
 
-/* Sekcje */
-section { padding:80px 20px; max-width:1000px; margin:0 auto; }
-section h2 { font-size:36px; color:#ff6b00; margin-bottom:30px; text-align:center; }
-section p { font-size:20px; margin-bottom:20px; text-align:center; }
-
-/* Oferta - kafelki */
-.service-cards { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-.card { background:#222; padding:20px; border-radius:8px; width:220px; text-align:center; transition:0.3s; }
-.card:hover { background:#333; transform:translateY(-5px); }
-.card img { width:100px; margin-bottom:10px; }
-.card h3 { font-size:18px; color:#ff6b00; }
-
-/* Galeria slider */
-.slider { position:relative; max-width:800px; margin:0 auto; overflow:hidden; }
-.slide { display:none; }
-.slide img { width:100%; border-radius:8px; border:3px solid #ff6b00; }
-
-/* Kontakt */
-.contact-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-.contact-info { flex:1; min-width:250px; }
-.contact-info p { font-size:18px; margin:10px 0; }
-.contact-form { flex:1; min-width:250px; display:flex; flex-direction:column; gap:10px; }
-.contact-form input, .contact-form textarea { padding:10px; border-radius:6px; border:none; }
-.contact-form button { background:#ff6b00; border:none; padding:10px; border-radius:6px; font-weight:600; cursor:pointer; transition:0.3s; }
-.contact-form button:hover { background:#ff4500; }
-
-/* Footer */
-footer { text-align:center; padding:20px; background:#111; color:#777; }
-
-/* Responsywność */
-@media(max-width:768px){
-  .hero h1 { font-size:40px; }
-  .hero p { font-size:20px; }
-  section h2 { font-size:28px; }
-  section p, .card h3, .contact-info p { font-size:16px; }
-  .service-cards { flex-direction:column; align-items:center; }
-  .contact-container { flex-direction:column; }
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    padding: 10px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
 }
+
+.logo-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 60px;
+    width: auto;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ff6b00;
+}
+
+.lang-switch button {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.lang-switch button:hover {
+    background-color: #ff6b00;
+    border-color: #ff6b00;
+}
+
+/* ===== HERO ===== */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('hero.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero .overlay {
+    background-color: rgba(0,0,0,0.5);
+    padding: 40px 20px;
+    border-radius: 15px;
+}
+
+.hero-logo h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em; /* mniejszy napis */
+    margin: 0;
+    color: #ff6b00;
+}
+
+.hero-logo-img {
+    margin-top: 20px;
+    height: 120px; /* większe logo */
+    width: auto;
+}
+
+.hero-text {
+    font-size: 1.5em;
+    margin: 20px 0;
+    line-height: 1.4;
+    color: #fff;
+}
+
+.cta-button {
+    background-color: #ff6b00;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e55a00;
+}
+
+/* ===== SEKCJA O FIRMIE ===== */
+section.about {
+    padding: 100px 30px 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.about h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* ===== OFERTA ===== */
+.services {
+    padding: 50px 30px;
+    background-color: #1a1a1a;
+}
+
+.services h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+}
+
+/* ===== GALERIA ===== */
+.gallery {
+    padding: 50px 30px;
+}
+
+.gallery h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.s
+
