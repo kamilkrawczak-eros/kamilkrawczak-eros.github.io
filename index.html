@@ -23,11 +23,12 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #111;
-    padding: 10px 30px;
+    padding: 10px 20px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
+    flex-wrap: wrap;
 }
 
 .logo-nav {
@@ -36,16 +37,17 @@ body {
 }
 
 .nav-logo {
-    height: 80px; /* większe logo */
+    height: 80px;
     width: auto;
-    display: inline-block;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li a {
@@ -59,54 +61,17 @@ body {
     color: #ff6b00;
 }
 
-/* Hamburger menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-}
-
-/* Language switch buttons */
+/* Flagi */
 .lang-switch button {
     background: none;
     border: none;
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin-left: 10px;
     cursor: pointer;
+    transition: transform 0.2s;
 }
-
-/* RESPONSIVE NAVBAR */
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 60px;
-        right: -100%;
-        flex-direction: column;
-        background-color: #111;
-        width: 250px;
-        transition: right 0.3s;
-        padding: 20px;
-        border-radius: 5px 0 0 5px;
-        gap: 15px;
-        height: calc(100vh - 60px);
-        overflow-y: auto;
-        z-index: 999;
-    }
-
-    .nav-links.active {
-        right: 0;
-    }
-
-    .hamburger {
-        display: flex;
-    }
+.lang-switch button:hover {
+    transform: scale(1.2);
 }
 
 /* ===== HERO ===== */
@@ -118,15 +83,12 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden;
-    padding-top: 60px; /* aby nie zasłaniał navbar */
 }
 
 .hero .overlay {
     background-color: rgba(0,0,0,0.5);
     padding: 40px 20px;
     border-radius: 15px;
-    max-width: 600px;
 }
 
 .hero-logo h1 {
@@ -138,12 +100,12 @@ body {
 
 .hero-logo-img {
     margin-top: 20px;
-    height: 150px; /* większe logo */
+    height: 200px; /* duże logo */
     width: auto;
 }
 
 .hero-text {
-    font-size: 1.5em;
+    font-size: 1.8em;
     margin: 20px 0;
     line-height: 1.4;
     color: #fff;
@@ -153,7 +115,7 @@ body {
     background-color: #ff6b00;
     color: #fff;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 5px;
     font-weight: bold;
     transition: background 0.3s;
@@ -292,7 +254,7 @@ section.about {
 }
 
 .contact-form button {
-    padding: 10px;
+    padding: 12px;
     border: none;
     background-color: #ff6b00;
     color: #fff;
@@ -314,6 +276,35 @@ footer {
     color: #fff;
     margin-top: 20px;
 }
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+.menu-toggle {
+    font-size: 2em;
+    cursor: pointer;
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        color: #fff;
+        margin-left: auto;
+        margin-right: 20px;
+    }
+}
 </style>
 </head>
 <body>
@@ -324,13 +315,7 @@ footer {
     <img src="logo.png" alt="Logo firmy" class="nav-logo">
     <span>Eros Kamil Krawczak</span>
   </div>
-
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   <ul class="nav-links">
     <li><a href="#hero">Home / Start</a></li>
     <li><a href="#about">O firmie / About</a></li>
@@ -338,7 +323,6 @@ footer {
     <li><a href="#gallery">Galeria / Gallery</a></li>
     <li><a href="#contact">Kontakt / Contact</a></li>
   </ul>
-
   <div class="lang-switch">
     <button onclick="switchLang('pl')">🇵🇱</button>
     <button onclick="switchLang('en')">🇬🇧</button>
@@ -367,14 +351,16 @@ footer {
     Firma Eros Kamil Krawczak działa od 2018 roku, świadcząc kompleksowe usługi spawalnicze dla przemysłu ciężkiego i branży stoczniowej. Właściciel firmy posiada ponad 20 lat doświadczenia w spawaniu konstrukcji stalowych, co pozwala realizować zarówno drobne zlecenia, jak i duże projekty przemysłowe.
   </p>
   <p class="lang-pl">
-    Specjalizujemy się w <strong>spawaniu konstrukcji stalowych, bram przemysłowych oraz dużych elementów stoczniowych</strong>, gwarantując najwyższą jakość wykonania. Nasza firma stawia na <strong>terminowość, rzetelność oraz precyzję</strong>, a każde zlecenie traktujemy indywidualnie.
+    Specjalizujemy się w spawaniu konstrukcji stalowych, bram przemysłowych oraz dużych elementów stoczniowych, gwarantując najwyższą jakość wykonania. Nasza firma stawia na terminowość, rzetelność oraz precyzję, a każde zlecenie traktujemy indywidualnie.
   </p>
   <p class="lang-en" style="display:none;">
     Eros Kamil Krawczak has been operating since 2018, providing comprehensive welding services for heavy industry and the shipyard sector. The owner has over 20 years of experience in welding steel constructions, enabling the company to handle both small-scale tasks and large industrial projects.
   </p>
   <p class="lang-en" style="display:none;">
-    We specialize in <strong>welding steel structures, industrial gates, and large shipyard components</strong>, ensuring the highest quality of workmanship. Our company emphasizes <strong>punctuality, reliability, and precision</strong>, and each project is approached individually.
+    We specialize in welding steel structures, industrial gates, and large shipyard components, ensuring the highest quality of workmanship. Our company emphasizes punctuality, reliability, and precision, and each project is approached individually.
   </p>
+  <p class="lang-pl">🏢 Adres: Podgórska 4a/2, 81-166 Gdynia</p>
+  <p class="lang-en" style="display:none;">🏢 Address: Podgórska 4a/2, 81-166 Gdynia, Poland</p>
 </section>
 
 <!-- Oferta -->
@@ -426,10 +412,6 @@ footer {
       <p class="lang-en" style="display:none;">📞 Phone: +48 690 887 072</p>
       <p class="lang-pl">✉️ Email: erosek13@gmail.com</p>
       <p class="lang-en" style="display:none;">✉️ Email: erosek13@gmail.com</p>
-      <p class="lang-pl">🏢 Adres: Podgórska 4a/2, 81-166 Gdynia</p>
-      <p class="lang-en" style="display:none;">🏢 Address: Podgórska 4a/2, 81-166 Gdynia, Poland</p>
-      <p class="lang-pl">🆔 NIP: 5272438753</p>
-      <p class="lang-en" style="display:none;">🆔 VAT ID: 5272438753</p>
     </div>
     <form class="contact-form">
       <input type="text" placeholder="Imię / Name" required>
@@ -446,28 +428,27 @@ footer {
 </footer>
 
 <script>
-  // Hamburger toggle
-  function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('active');
-  }
+function switchLang(lang){
+  document.querySelectorAll('.lang-pl').forEach(el=>el.style.display=lang==='pl'?'block':'none');
+  document.querySelectorAll('.lang-en').forEach(el=>el.style.display=lang==='en'?'block':'none');
+}
 
-  // Przełączanie języka
-  function switchLang(lang) {
-    document.querySelectorAll('.lang-pl').forEach(el => el.style.display = lang==='pl' ? '' : 'none');
-    document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang==='en' ? '' : 'none');
-  }
+// Slider
+let slideIndex = 0;
+function showSlides(){
+  const slides=document.querySelectorAll('.slide');
+  slides.forEach(s=>s.style.display='none');
+  slideIndex++;
+  if(slideIndex>slides.length) slideIndex=1;
+  slides[slideIndex-1].style.display='block';
+  setTimeout(showSlides,3000);
+}
+showSlides();
 
-  // Slider galerii
-  let slideIndex = 0;
-  function showSlides() {
-    const slides = document.querySelectorAll('.slide');
-    slides.forEach(s => s.style.display='none');
-    slideIndex++;
-    if(slideIndex > slides.length) slideIndex=1;
-    slides[slideIndex-1].style.display='block';
-    setTimeout(showSlides, 3000);
-  }
-  showSlides();
+// Navbar toggle mobile
+function toggleMenu(){
+  document.querySelector('.nav-links').classList.toggle('active');
+}
 </script>
 
 </body>
