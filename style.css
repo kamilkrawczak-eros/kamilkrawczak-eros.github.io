@@ -1,10 +1,101 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  text-align: center;
-  padding: 50px;
+/* Reset i podstawy */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1 {
-  color: #6a5acd;
+body {
+  font-family: 'Arial', sans-serif;
+  color: #eee;
+  background-color: #121212;
+  line-height: 1.6;
+}
+
+/* HERO - zdjęcie w tle */
+.hero {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1618889333560-3e54d9e7a788?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .overlay {
+  background: rgba(0,0,0,0.6);
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  color: #ff6b00;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 24px;
+  color: #fff;
+}
+
+/* Sekcje */
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+section h2 {
+  font-size: 36px;
+  color: #ff6b00;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+section p, section ul {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+section ul {
+  list-style-type: none;
+}
+
+section ul li {
+  background: #222;
+  margin: 10px auto;
+  padding: 15px 20px;
+  max-width: 400px;
+  border-radius: 6px;
+}
+
+/* Kontakt */
+.contact p {
+  margin: 10px 0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #777;
+}
+
+/* Responsywność */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+  .hero p {
+    font-size: 18px;
+  }
+  section h2 {
+    font-size: 28px;
+  }
+  section p, section ul li {
+    font-size: 16px;
+  }
 }
