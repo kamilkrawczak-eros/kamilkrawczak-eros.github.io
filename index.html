@@ -8,15 +8,274 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 
-<!-- CSS -->
-<link rel="stylesheet" href="style.css">
+<style>
+/* ===== Ogólne ===== */
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #111;
+    color: #fff;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    padding: 10px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 60px;
+    width: auto;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ff6b00;
+}
+
+.lang-switch button {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.lang-switch button:hover {
+    background-color: #ff6b00;
+    border-color: #ff6b00;
+}
+
+/* ===== HERO ===== */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('hero.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero .overlay {
+    background-color: rgba(0,0,0,0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background-color: #ff6b00;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e55a00;
+}
+
+/* ===== SEKCJA O FIRMIE ===== */
+section.about {
+    padding: 100px 30px 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.about h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* ===== OFERTA ===== */
+.services {
+    padding: 50px 30px;
+    background-color: #1a1a1a;
+}
+
+.services h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+}
+
+/* ===== GALERIA ===== */
+.gallery {
+    padding: 50px 30px;
+}
+
+.gallery h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.slider {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ===== KONTAKT ===== */
+.contact {
+    padding: 50px 30px;
+    background-color: #1a1a1a;
+}
+
+.contact h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.contact-info {
+    max-width: 300px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+}
+
+.contact-form button {
+    padding: 10px;
+    border: none;
+    background-color: #ff6b00;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #e55a00;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #fff;
+    margin-top: 20px;
+}
+</style>
 </head>
 <body>
 
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo-nav">
-    <img src="images/logo.png" alt="Logo firmy" class="nav-logo">
+    <img src="logo.png" alt="Logo firmy" class="nav-logo">
     <span>Eros Kamil Krawczak</span>
   </div>
   <ul class="nav-links">
@@ -34,22 +293,9 @@
 
 <!-- HERO -->
 <header id="hero" class="hero">
-  <div class="spark-container">
-    <div class="spark" style="--i:0;"></div>
-    <div class="spark" style="--i:1;"></div>
-    <div class="spark" style="--i:2;"></div>
-    <div class="spark" style="--i:3;"></div>
-    <div class="spark" style="--i:4;"></div>
-    <div class="spark" style="--i:5;"></div>
-    <div class="spark" style="--i:6;"></div>
-    <div class="spark" style="--i:7;"></div>
-    <div class="spark" style="--i:8;"></div>
-    <div class="spark" style="--i:9;"></div>
-  </div>
   <div class="overlay">
     <h1 class="lang-pl">Eros Kamil Krawczak</h1>
     <h1 class="lang-en" style="display:none;">Eros Kamil Krawczak</h1>
-    <img src="images/hero.png" alt="Logo firmy" class="logo">
     <p class="lang-pl">Usługi spawalnicze | Gdynia i cała Europa</p>
     <p class="lang-en" style="display:none;">Welding Services | Gdynia & All Europe</p>
     <a href="#contact" class="cta-button lang-pl">Skontaktuj się</a>
@@ -65,20 +311,13 @@
     Firma Eros Kamil Krawczak działa od 2018 roku, świadcząc kompleksowe usługi spawalnicze dla przemysłu ciężkiego i branży stoczniowej. Właściciel firmy posiada ponad 20 lat doświadczenia w spawaniu konstrukcji stalowych, co pozwala realizować zarówno drobne zlecenia, jak i duże projekty przemysłowe.
   </p>
   <p class="lang-pl">
-    Specjalizujemy się w <strong>spawaniu konstrukcji stalowych, bram przemysłowych oraz dużych elementów stoczniowych</strong>, gwarantując najwyższą jakość wykonania. Nasza firma stawia na <strong>terminowość, rzetelność oraz precyzję</strong>, a każde zlecenie traktujemy indywidualnie, oferując fachowe doradztwo i profesjonalne wykonawstwo.
+    Specjalizujemy się w <strong>spawaniu konstrukcji stalowych, bram przemysłowych oraz dużych elementów stoczniowych</strong>, gwarantując najwyższą jakość wykonania. Nasza firma stawia na <strong>terminowość, rzetelność oraz precyzję</strong>, a każde zlecenie traktujemy indywidualnie.
   </p>
-  <p class="lang-pl">
-    Dzięki wieloletniemu doświadczeniu i znajomości branży jesteśmy partnerem, któremu można w pełni zaufać przy realizacji konstrukcji stalowych, naprawach i renowacjach elementów przemysłowych.
-  </p>
-
   <p class="lang-en" style="display:none;">
     Eros Kamil Krawczak has been operating since 2018, providing comprehensive welding services for heavy industry and the shipyard sector. The owner has over 20 years of experience in welding steel constructions, enabling the company to handle both small-scale tasks and large industrial projects.
   </p>
   <p class="lang-en" style="display:none;">
-    We specialize in <strong>welding steel structures, industrial gates, and large shipyard components</strong>, ensuring the highest quality of workmanship. Our company emphasizes <strong>punctuality, reliability, and precision</strong>, and each project is approached individually, offering expert advice and professional execution.
-  </p>
-  <p class="lang-en" style="display:none;">
-    With years of experience and deep industry knowledge, we are a partner you can fully trust for steel constructions, industrial repairs, and renovation of large-scale components.
+    We specialize in <strong>welding steel structures, industrial gates, and large shipyard components</strong>, ensuring the highest quality of workmanship. Our company emphasizes <strong>punctuality, reliability, and precision</strong>, and each project is approached individually.
   </p>
 </section>
 
@@ -88,22 +327,22 @@
   <h2 class="lang-en" style="display:none;">Our Services</h2>
   <div class="service-cards">
     <div class="card">
-      <img src="images/ikon_spawanie.png" alt="Spawanie">
-      <h3 class="lang-pl">Spawanie MIG/MAG</h3>
-      <h3 class="lang-en" style="display:none;">MIG/MAG Welding</h3>
+      <img src="ikon_spawanie.png" alt="Spawanie">
+      <h3 class="lang-pl">Spawanie MIG/MAG/TIG</h3>
+      <h3 class="lang-en" style="display:none;">MIG/MAG/TIG Welding</h3>
     </div>
     <div class="card">
-      <img src="images/ikon_konstrukcje.png" alt="Konstrukcje stalowe">
+      <img src="ikon_konstrukcje.png" alt="Konstrukcje stalowe">
       <h3 class="lang-pl">Konstrukcje stalowe / Stocznia</h3>
       <h3 class="lang-en" style="display:none;">Steel Constructions / Shipyard</h3>
     </div>
     <div class="card">
-      <img src="images/ikon_bramy.png" alt="Bramy przemysłowe">
-      <h3 class="lang-pl">Bramy przemysłowe</h3>
+      <img src="ikon_bramy.png" alt="Bramy przemysłowe">
+      <h3 class="lang-pl">Bramy przemysłowe / Stocznia</h3>
       <h3 class="lang-en" style="display:none;">Industrial Gates / Shipyard</h3>
     </div>
     <div class="card">
-      <img src="images/ikon_naprawy.png" alt="Naprawy">
+      <img src="ikon_naprawy.png" alt="Naprawy">
       <h3 class="lang-pl">Naprawy i renowacje</h3>
       <h3 class="lang-en" style="display:none;">Repairs & Renovations</h3>
     </div>
@@ -115,9 +354,9 @@
   <h2 class="lang-pl">Galeria</h2>
   <h2 class="lang-en" style="display:none;">Gallery</h2>
   <div class="slider">
-    <div class="slide"><img src="images/galeria1.jpg" alt="Realizacja 1"></div>
-    <div class="slide"><img src="images/galeria2.jpg" alt="Realizacja 2"></div>
-    <div class="slide"><img src="images/galeria3.jpg" alt="Realizacja 3"></div>
+    <div class="slide"><img src="galeria1.jpg" alt="Realizacja 1"></div>
+    <div class="slide"><img src="galeria2.jpg" alt="Realizacja 2"></div>
+    <div class="slide"><img src="galeria3.jpg" alt="Realizacja 3"></div>
   </div>
 </section>
 
@@ -133,8 +372,8 @@
       <p class="lang-en" style="display:none;">✉️ Email: erosek13@gmail.com</p>
       <p class="lang-pl">🏢 Adres: Podgórska 4a/2, 81-166 Gdynia</p>
       <p class="lang-en" style="display:none;">🏢 Address: Podgórska 4a/2, 81-166 Gdynia, Poland</p>
-      <p class="lang-pl">🆔 NIP: PL5272438753</p>
-      <p class="lang-en" style="display:none;">🆔 VAT ID: PL5272438753</p>
+      <p class="lang-pl">🆔 NIP:PL5272438753</p>
+      <p class="lang-en" style="display:none;">🆔 VAT ID: 5272438753</p>
     </div>
     <form class="contact-form">
       <input type="text" placeholder="Imię / Name" required>
@@ -151,12 +390,13 @@
 </footer>
 
 <script>
+  // Przełączanie języka
   function switchLang(lang) {
     document.querySelectorAll('.lang-pl').forEach(el => el.style.display = lang === 'pl' ? '' : 'none');
     document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
   }
 
-  // Prosty slider
+  // Prosty slider galerii
   let slideIndex = 0;
   function showSlides() {
     const slides = document.querySelectorAll('.slide');
