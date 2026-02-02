@@ -92,16 +92,22 @@ body {
     border-radius: 15px;
 }
 
-.hero-logo h1 {
+/* nowa klasa dla logo i nazwy przesuniętej w prawo */
+.hero-logo-right {
+    text-align: right;
+    margin-right: 50px; /* odległość od prawej */
+}
+
+.hero-logo-right h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 4em;
+    font-size: 2.5em; /* mniejszy napis */
     margin: 0;
     color: #ff6b00;
 }
 
-.hero-logo-img {
-    margin-top: 15px;
-    height: 80px;
+.hero-logo-right .hero-logo-img {
+    margin-top: 20px;
+    height: 150px; /* większe logo */
     width: auto;
 }
 
@@ -110,6 +116,7 @@ body {
     margin: 20px 0;
     line-height: 1.4;
     color: #fff;
+    text-align: center;
 }
 
 .cta-button {
@@ -303,7 +310,7 @@ footer {
 <!-- HERO -->
 <header id="hero" class="hero">
   <div class="overlay">
-    <div class="hero-logo">
+    <div class="hero-logo-right">
       <h1>Eros Kamil Krawczak</h1>
       <img src="logo.png" alt="Logo firmy" class="hero-logo-img">
     </div>
@@ -365,9 +372,9 @@ footer {
   <h2 class="lang-pl">Galeria</h2>
   <h2 class="lang-en" style="display:none;">Gallery</h2>
   <div class="slider">
-    <div class="slide"><img src="galeria1.jpg" alt="Realizacja 1"></div>
-    <div class="slide"><img src="galeria2.jpg" alt="Realizacja 2"></div>
-    <div class="slide"><img src="galeria3.jpg" alt="Realizacja 3"></div>
+    <div class="slide"><img src="galeria1.png" alt="Realizacja 1"></div>
+    <div class="slide"><img src="galeria2.png" alt="Realizacja 2"></div>
+    <div class="slide"><img src="galeria3.png" alt="Realizacja 3"></div>
   </div>
 </section>
 
@@ -383,8 +390,8 @@ footer {
       <p class="lang-en" style="display:none;">✉️ Email: erosek13@gmail.com</p>
       <p class="lang-pl">🏢 Adres: Podgórska 4a/2, 81-166 Gdynia</p>
       <p class="lang-en" style="display:none;">🏢 Address: Podgórska 4a/2, 81-166 Gdynia, Poland</p>
-      <p class="lang-pl">🆔 NIP: 5272438753</p>
-      <p class="lang-en" style="display:none;">🆔 VAT ID: 5272438753</p>
+      <p class="lang-pl">🆔 NIP: PL5272438753</p>
+      <p class="lang-en" style="display:none;">🆔 VAT ID: PL5272438753</p>
     </div>
     <form class="contact-form">
       <input type="text" placeholder="Imię / Name" required>
