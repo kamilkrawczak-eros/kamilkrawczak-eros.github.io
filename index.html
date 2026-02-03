@@ -1,184 +1,430 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eros Kamil Krawczak – Usługi Spawalnicze</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eros Kamil Krawczak - Usługi spawalnicze / Welding Services</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg: #0b0c10;
-      --panel: rgba(255,255,255,0.06);
-      --panel-2: rgba(255,255,255,0.08);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.70);
-      --muted2: rgba(255,255,255,0.55);
-      --line: rgba(255,255,255,0.12);
-      --brand: #ff6b00;
-      --brand2:#ff8a3d;
-      --shadow: 0 18px 60px rgba(0,0,0,0.55);
-      --radius: 18px;
-      --radius2: 26px;
-      --max: 1100px;
-      --pad: clamp(18px, 3vw, 28px);
-    }
+<style>
+* { box-sizing: border-box; scroll-behavior: smooth; }
+body {
+    margin: 0;
+    padding-top: 90px; /* 🔴 WAŻNE – navbar */
+    font-family: 'Open Sans', sans-serif;
+    background-color: #111;
+    color: #fff;
+}
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(900px 500px at 70% 10%, rgba(255,107,0,0.18), transparent 60%),
-        radial-gradient(700px 420px at 20% 20%, rgba(255,255,255,0.08), transparent 55%),
-        var(--bg);
-      color: var(--text);
-    }
-    a{ color:inherit; text-decoration:none; }
-    img{ max-width:100%; height:auto; display:block; }
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    z-index: 1000;
+}
 
-    /* ===== Layout ===== */
-    .container{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 var(--pad);
-    }
-    .section{
-      padding: clamp(64px, 8vw, 110px) 0;
-    }
-    .section-header{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      margin-bottom: 26px;
-      text-align:center;
-    }
-    .eyebrow{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      justify-content:center;
-      margin:0 auto;
-      padding:10px 14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,0.04);
-      border-radius: 999px;
-      color: var(--muted);
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      width: fit-content;
-    }
-    .dot{
-      width:8px; height:8px;
-      background: var(--brand);
-      border-radius:999px;
-      box-shadow: 0 0 0 6px rgba(255,107,0,0.14);
-    }
-    h1,h2{
-      font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      margin:0;
-      line-height: 1.05;
-    }
-    h2{
-      font-size: clamp(28px, 3.4vw, 44px);
-      letter-spacing: -0.5px;
-    }
-    p{
-      margin:0;
-      color: var(--muted);
-      line-height: 1.65;
-      font-size: 1.05rem;
-    }
+.logo-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-    /* ===== Navbar ===== */
-    .navbar{
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 1000;
-      background: rgba(11,12,16,0.55);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.10);
-    }
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding: 12px var(--pad);
-      max-width: var(--max);
-      margin:0 auto;
-      gap: 14px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      min-width: 240px;
-    }
-    .brand img{
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.08);
-      padding: 6px;
-      border: 1px solid rgba(255,255,255,0.10);
-    }
-    .brand .title{
-      display:flex;
-      flex-direction:column;
-      gap: 2px;
-      line-height: 1.1;
-    }
-    .brand strong{
-      font-family: Montserrat, sans-serif;
-      font-weight: 800;
-      letter-spacing: -0.2px;
-      font-size: 0.98rem;
-      color: rgba(255,255,255,0.95);
-      white-space: nowrap;
-    }
-    .brand span{
-      font-size: 0.84rem;
-      color: var(--muted2);
-      white-space: nowrap;
-    }
+.nav-logo {
+    height: 60px;
+    width: auto;
+    display: inline-block;
+    margin-right: 10px;
+}
 
-    .nav-links{
-      list-style:none;
-      display:flex;
-      gap: 18px;
-      padding:0;
-      margin:0;
-      align-items:center;
-    }
-    .nav-links a{
-      padding: 10px 12px;
-      border-radius: 999px;
-      color: rgba(255,255,255,0.86);
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid transparent;
-      transition: transform .15s ease, background .15s ease, border .15s ease, color .15s ease;
-    }
-    .nav-links a:hover{
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.10);
-      transform: translateY(-1px);
-    }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
 
-    .nav-right{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-    }
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s;
+}
 
-    .lang-switch{
-      display:flex;
-      gap: 8px;
-      padding: 6px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255
+.nav-links li a:hover {
+    color: #ff6b00;
+}
+
+.lang-switch button {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.lang-switch button:hover {
+    background-color: #ff6b00;
+    border-color: #ff6b00;
+}
+
+/* ===== HERO ===== */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('hero.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero .overlay {
+    background-color: rgba(0,0,0,0.5);
+    padding: 40px 20px;
+    border-radius: 15px;
+}
+
+.hero-logo h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em; /* mniejszy napis */
+    margin: 0;
+    color: #ff6b00;
+}
+
+.hero-logo-img {
+    margin-top: 20px;
+    height: 120px; /* większe logo */
+    width: auto;
+}
+
+.hero-text {
+    font-size: 1.5em;
+    margin: 20px 0;
+    line-height: 1.4;
+    color: #fff;
+}
+
+.cta-button {
+    background-color: #ff6b00;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e55a00;
+}
+
+/* ===== SEKCJE ===== */
+section {
+    padding: 80px 30px;
+    max-width: 1100px;
+    margin: auto;
+    scroll-margin-top: 100px;
+}
+}
+
+.about h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* ===== OFERTA ===== */
+.services {
+    padding: 50px 30px;
+    background-color: #1a1a1a;
+}
+
+.services h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+}
+
+/* ===== GALERIA ===== */
+.gallery {
+    padding: 50px 30px;
+}
+
+.gallery h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.slider {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ===== KONTAKT ===== */
+.contact {
+    padding: 50px 30px;
+    background-color: #1a1a1a;
+}
+
+.contact h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.contact-info {
+    max-width: 300px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+}
+
+.contact-form button {
+    padding: 10px;
+    border: none;
+    background-color: #ff6b00;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #e55a00;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #fff;
+    margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo-nav">
+    <img src="logo.png" alt="Logo firmy" class="nav-logo">
+    <span>Eros Kamil Krawczak</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home / Start</a></li>
+    <li><a href="#about">O firmie / About</a></li>
+    <li><a href="#services">Oferta / Services</a></li>
+    <li><a href="#gallery">Galeria / Gallery</a></li>
+    <li><a href="#contact">Kontakt / Contact</a></li>
+  </ul>
+  <div class="lang-switch">
+  <button onclick="switchLang('pl')">🇵🇱 PL</button>
+  <button onclick="switchLang('en')">🇬🇧 EN</button>
+</div>
+
+</nav>
+
+<!-- HERO -->
+<header id="hero" class="hero">
+  <div class="overlay">
+    <div class="hero-logo">
+      <h1>Eros Kamil Krawczak</h1>
+      <img src="logo.png" alt="Logo firmy" class="hero-logo-img">
+    </div>
+    <p class="lang-pl hero-text">Usługi spawalnicze | Gdynia i cała Europa</p>
+    <p class="lang-en hero-text" style="display:none;">Welding Services | Gdynia & All Europe</p>
+    <a href="#contact" class="cta-button lang-pl">Skontaktuj się</a>
+    <a href="#contact" class="cta-button lang-en" style="display:none;">Contact Us</a>
+  </div>
+</header>
+
+<!-- O firmie -->
+<section id="about" class="about">
+  <h2 class="lang-pl">O firmie</h2>
+  <h2 class="lang-en" style="display:none;">About</h2>
+  <p class="lang-pl">
+    Firma Eros Kamil Krawczak działa od 2018 roku, świadcząc kompleksowe usługi spawalnicze dla przemysłu ciężkiego i branży stoczniowej. Właściciel firmy posiada ponad 20 lat doświadczenia w spawaniu konstrukcji stalowych, co pozwala realizować zarówno drobne zlecenia, jak i duże projekty przemysłowe.
+  </p>
+  <p class="lang-pl">
+    Specjalizujemy się w <strong>spawaniu konstrukcji stalowych, bram przemysłowych oraz dużych elementów stoczniowych</strong>, gwarantując najwyższą jakość wykonania. Nasza firma stawia na <strong>terminowość, rzetelność oraz precyzję</strong>, a każde zlecenie traktujemy indywidualnie.
+  </p>
+  <p class="lang-en" style="display:none;">
+    Eros Kamil Krawczak has been operating since 2018, providing comprehensive welding services for heavy industry and the shipyard sector. The owner has over 20 years of experience in welding steel constructions, enabling the company to handle both small-scale tasks and large industrial projects.
+  </p>
+  <p class="lang-en" style="display:none;">
+    We specialize in <strong>welding steel structures, industrial gates, and large shipyard components</strong>, ensuring the highest quality of workmanship. Our company emphasizes <strong>punctuality, reliability, and precision</strong>, and each project is approached individually.
+  </p>
+</section>
+
+<!-- Oferta -->
+<section id="services" class="services">
+  <h2 class="lang-pl">Nasza oferta</h2>
+  <h2 class="lang-en" style="display:none;">Our Services</h2>
+  <div class="service-cards">
+    <div class="card">
+      <img src="ikon_spawanie.png" alt="Spawanie">
+      <h3 class="lang-pl">Spawanie MIG/MAG/TIG</h3>
+      <h3 class="lang-en" style="display:none;">MIG/MAG/TIG Welding</h3>
+    </div>
+    <div class="card">
+      <img src="ikon_konstrukcje.png" alt="Konstrukcje stalowe">
+      <h3 class="lang-pl">Konstrukcje stalowe / Stocznia</h3>
+      <h3 class="lang-en" style="display:none;">Steel Constructions / Shipyard</h3>
+    </div>
+    <div class="card">
+      <img src="ikon_bramy.png" alt="Bramy przemysłowe">
+      <h3 class="lang-pl">Bramy przemysłowe / Stocznia</h3>
+      <h3 class="lang-en" style="display:none;">Industrial Gates / Shipyard</h3>
+    </div>
+    <div class="card">
+      <img src="ikon_naprawy.png" alt="Naprawy">
+      <h3 class="lang-pl">Naprawy i renowacje</h3>
+      <h3 class="lang-en" style="display:none;">Repairs & Renovations</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Galeria -->
+<section id="gallery" class="gallery">
+  <h2 class="lang-pl">Galeria</h2>
+  <h2 class="lang-en" style="display:none;">Gallery</h2>
+  <div class="slider">
+    <div class="slide"><img src="galeria1.jpg" alt="Realizacja 1"></div>
+    <div class="slide"><img src="galeria2.jpg" alt="Realizacja 2"></div>
+    <div class="slide"><img src="galeria3.jpg" alt="Realizacja 3"></div>
+  </div>
+</section>
+
+<!-- Kontakt -->
+<section id="contact" class="contact">
+  <h2 class="lang-pl">Kontakt</h2>
+  <h2 class="lang-en" style="display:none;">Contact</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <p class="lang-pl">📞 Telefon: +48 690 887 072</p>
+      <p class="lang-en" style="display:none;">📞 Phone: +48 690 887 072</p>
+      <p class="lang-pl">✉️ Email: erosek13@gmail.com</p>
+      <p class="lang-en" style="display:none;">✉️ Email: erosek13@gmail.com</p>
+      <p class="lang-pl">🏢 Adres: Podgórska 4a/2, 81-166 Gdynia</p>
+      <p class="lang-en" style="display:none;">🏢 Address: Podgórska 4a/2, 81-166 Gdynia, Poland</p>
+      <p class="lang-pl">🆔 NIP: PL5272438753</p>
+      <p class="lang-en" style="display:none;">🆔 VAT ID: PL5272438753</p>
+    </div>
+    <form class="contact-form">
+      <input type="text" placeholder="Imię / Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Wiadomość / Message" required></textarea>
+      <button type="submit" class="lang-pl">Wyślij</button>
+      <button type="submit" class="lang-en" style="display:none;">Send</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Eros Kamil Krawczak. Wszystkie prawa zastrzeżone / All rights reserved.</p>
+</footer>
+
+<script>
+  // Przełączanie języka
+  function switchLang(lang) {
+    document.querySelectorAll('.lang-pl').forEach(el => el.style.display = lang === 'pl' ? '' : 'none');
+    document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+  }
+
+  // Prosty slider galerii
+  let slideIndex = 0;
+  function showSlides() {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach(s => s.style.display='none');
+    slideIndex++;
+    if(slideIndex > slides.length) slideIndex=1;
+    slides[slideIndex-1].style.display='block';
+    setTimeout(showSlides, 3000);
+  }
+  showSlides();
+</script>
+
+</body>
+</html>
